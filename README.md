@@ -46,6 +46,13 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-C
 - **Working**: Everything
 - **Not Working**: Nothing
 
+## TODO
+
+- [ ] Add links
+- [ ] Add EFI zip
+- [ ] Add BIOS settings
+- [ ] Add screenshots
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
