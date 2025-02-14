@@ -11,8 +11,8 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-C
 - **SSD**: Netac NV7000 1TB NVMe (PCIe 4.0 x4)
 - **Wi-Fi/Bluetooth**: Fenvi T919 (BCM94360CD)
 - **SMBIOS**: MacPro7,1 (Mac Pro (2019))
-- **OpenCore**: 1.0.2 (Release)
-- **OpenCory Legacy Patcher**: 2.0.2
+- **OpenCore**: 1.0.3 (Release)
+- **OpenCory Legacy Patcher**: 2.2.0
 
 ## Drivers
 
@@ -49,7 +49,6 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-C
 ## TODO
 
 - [ ] Add links
-- [ ] Add EFI zip
 - [ ] Add BIOS settings
 - [ ] Add screenshots
 
