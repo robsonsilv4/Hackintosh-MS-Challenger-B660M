@@ -11,8 +11,11 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-C
 - **SSD**: Netac NV7000 1TB NVMe (PCIe 4.0 x4)
 - **Wi-Fi/Bluetooth**: Fenvi T919 (BCM94360CD)
 - **SMBIOS**: MacPro7,1 (Mac Pro (2019))
-- **OpenCore**: 1.0.3 (Release)
-- **OpenCory Legacy Patcher**: 2.2.0
+
+## Bootloader
+
+- **OpenCore**: [1.0.3 (Release)](https://github.com/acidanthera/OpenCorePkg)
+- **OpenCore Legacy Patcher**: [2.2.0](https://github.com/dortania/OpenCore-Legacy-Patcher)
 
 ## Drivers
 
@@ -24,22 +27,22 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-C
 
 ## Kexts
 
-- **AMFIPass**
-- **AppleALC**
-- **CpuTscSync**
-- **IO80211FamilyLegacy**
-- **IOSkywalkFamily**
-- **Lilu**
-- **LucyRTL8125Ethernet**
-- **NVMeFix**
-- **RestrictEvents**
-- **SMCProcessor**
-- **SMCRadeonSensors**
-- **SMCSuperIO**
-- **USBMap**
-- **USBWakeFixup**
-- **VirtualSMC**
-- **WhateverGreen**
+- **[AMFIPass](https://github.com/osy/AMFIPass)**
+- **[AppleALC](https://github.com/acidanthera/AppleALC)**
+- **[CpuTscSync](https://github.com/acidanthera/CpuTscSync)**
+- **[IO80211FamilyLegacy](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)**
+- **[IOSkywalkFamily](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)**
+- **[Lilu](https://github.com/acidanthera/Lilu)**
+- **[LucyRTL8125Ethernet](https://github.com/Mieze/LucyRTL8125Ethernet)**
+- **[NVMeFix](https://github.com/acidanthera/NVMeFix)**
+- **[RestrictEvents](https://github.com/acidanthera/RestrictEvents)**
+- **[SMCProcessor](https://github.com/acidanthera/VirtualSMC)**
+- **[SMCRadeonSensors](https://github.com/ChefKissInc/SMCRadeonSensors)**
+- **[SMCSuperIO](https://github.com/acidanthera/VirtualSMC)**
+- **[USBMap](https://github.com/corpnewt/USBMap)**
+- **[USBWakeFixup](https://github.com/osy/USBWakeFixup)**
+- **[VirtualSMC](https://github.com/acidanthera/VirtualSMC)**
+- **[WhateverGreen](https://github.com/acidanthera/WhateverGreen)**
 
 ## Status
 
@@ -48,7 +51,6 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-C
 
 ## TODO
 
-- [ ] Add links
 - [ ] Add BIOS settings
 - [ ] Add screenshots
 
