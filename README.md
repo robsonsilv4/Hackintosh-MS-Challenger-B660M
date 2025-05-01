@@ -14,8 +14,8 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-C
 
 ## Bootloader
 
-- **OpenCore**: [1.0.3 (Release)](https://github.com/acidanthera/OpenCorePkg)
-- **OpenCore Legacy Patcher**: [2.2.0](https://github.com/dortania/OpenCore-Legacy-Patcher)
+- **OpenCore**: [1.0.4 (Release)](https://github.com/acidanthera/OpenCorePkg)
+- **OpenCore Legacy Patcher**: [2.3.2](https://github.com/dortania/OpenCore-Legacy-Patcher)
 
 ## Drivers
 
