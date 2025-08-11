@@ -45,8 +45,8 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 - **[SMCProcessor 1.3.7](https://github.com/acidanthera/virtualsmc/releases)**
 - **[SMCRadeonSensors 2.3.1](https://github.com/ChefKissInc/SMCRadeonSensors/releases)**
 - **[SMCSuperIO 1.3.7](https://github.com/acidanthera/virtualsmc/releases)**
-- **[USBMap](https://github.com/corpnewt/USBMap)**
-- **[USBWakeFixup](https://github.com/osy/USBWakeFixup)**
+- **[USBMap Dec 23, 2022](https://github.com/corpnewt/USBMap)**
+- **[USBWakeFixup 1.0](https://github.com/osy/USBWakeFixup/releases)**
 - **[VirtualSMC 1.3.7](https://github.com/acidanthera/virtualsmc/releases)**
 - **[WhateverGreen 1.7.0](https://github.com/acidanthera/whatevergreen/releases)**
 
@@ -58,7 +58,6 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 ## TODO
 
 - [ ] Add BIOS settings
-- [ ] Add screenshots
 
 ## Credits
 
