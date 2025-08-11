@@ -1,6 +1,12 @@
 # Hackintosh MS-Challenger B660M (macOS Sequoia)
 
-Fully working OpenCore configuration for macOS Sequoia (macOS 15) on MAXSUN MS-Challenger B660M with Intel Core i5-12400F and 51RISC (MSI MECH 2X) AMD Radeon RX 6600.
+Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on MAXSUN MS-Challenger B660M with Intel Core i5-12400F and 51RISC (MSI MECH 2X) AMD Radeon RX 6600.
+
+## Screenshots
+
+![About This Mac](./screenshots/about-this-mac.png)
+
+![Neofetch](./screenshots/neofetch.png)
 
 ## Specifications
 
