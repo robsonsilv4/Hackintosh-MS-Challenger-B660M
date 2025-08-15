@@ -59,6 +59,15 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 
 - [ ] Add BIOS settings
 
+## Tools (Optional)
+
+- **[MountEFI](https://github.com/corpnewt/MountEFI)**
+- **[ProperTree](https://github.com/corpnewt/ProperTree)**
+- **[Hackintool](https://github.com/benbaker76/Hackintool/releases)**
+- **[Stats](https://github.com/exelban/stats/releases)**
+- **[Suspicious Package](https://mothersruin.com/software/SuspiciousPackage/)**
+- **[OnyX](https://www.titanium-software.fr/en/onyx.html)**
+
 ## Credits
 
 Thanks to all developers and contributors of OpenCore, OpenCore Legacy Patcher, drivers, kexts, and tools used in this project. Checkout the links above for more information.
