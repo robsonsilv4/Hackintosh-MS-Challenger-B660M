@@ -15,7 +15,7 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 - **GPU**: 51RISC (MSI MECH 2X) AMD Radeon RX 6600 (Navi 23)
 - **RAM**: MAXSUN MS-Avenger 32GB DDR4 3200MHz (2x16GB)
 - **SSD**: Netac NV7000 1TB NVMe (PCIe 4.0 x4)
-- **Wi-Fi/Bluetooth**: Fenvi T919 (BCM94360CD)
+- **Wi-Fi/Bluetooth**: Fenvi AX210 (Intel Wi-Fi 6E AX210)
 - **SMBIOS**: MacPro7,1 (Mac Pro (2019))
 
 ## Bootloader
@@ -35,9 +35,11 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 
 - **[AMFIPass 1.4.1](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera)**
 - **[AppleALC 1.9.8](https://github.com/acidanthera/applealc/releases)**
+- **[BlueToolFixup 2.7.2](https://github.com/acidanthera/BrcmPatchRAM/releases)**
 - **[CpuTscSync 1.1.2](https://github.com/acidanthera/CpuTscSync/releases)**
-- **[IO80211FamilyLegacy 1.0.0](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)**
-- **[IOSkywalkFamily 1.2.0](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)**
+- **[IntelBluetoothFirmware 2.4.0](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)**
+- **[IntelBTPatcher 2.4.0](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)**
+- **[itlwm 2.3.0](https://github.com/OpenIntelWireless/itlwm/releases)**
 - **[Lilu 1.7.2](https://github.com/acidanthera/Lilu/releases)**
 - **[LucyRTL8125Ethernet 1.2.3](https://github.com/Mieze/LucyRTL8125Ethernet/releases)**
 - **[NVMeFix 1.1.3](https://github.com/acidanthera/NVMeFix/releases)**
@@ -49,6 +51,8 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 - **[USBWakeFixup 1.0](https://github.com/osy/USBWakeFixup/releases)**
 - **[VirtualSMC 1.3.8](https://github.com/acidanthera/virtualsmc/releases)**
 - **[WhateverGreen 1.7.1](https://github.com/acidanthera/whatevergreen/releases)**
+
+> **Wi-Fi note**: `itlwm` has no native menu — install the [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) app to connect to networks.
 
 ## Status
 
