@@ -36,7 +36,6 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 - **[AMFIPass 1.4.1](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera)**
 - **[AppleALC 1.9.8](https://github.com/acidanthera/applealc/releases)**
 - **[BlueToolFixup 2.7.2](https://github.com/acidanthera/BrcmPatchRAM/releases)**
-- **[CpuTscSync 1.1.2](https://github.com/acidanthera/CpuTscSync/releases)**
 - **[IntelBluetoothFirmware 2.5.1](https://github.com/lshbluesky/IntelBluetoothFirmware/releases)**
 - **[IntelBTPatcher 2.5.1](https://github.com/lshbluesky/IntelBluetoothFirmware/releases)**
 - **[itlwm 2.3.0](https://github.com/OpenIntelWireless/itlwm/releases)**
