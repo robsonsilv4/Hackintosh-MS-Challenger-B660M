@@ -40,8 +40,8 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 - **[IntelBTPatcher 2.5.1](https://github.com/lshbluesky/IntelBluetoothFirmware/releases)**
 - **[itlwm 2.3.0](https://github.com/OpenIntelWireless/itlwm/releases)**
 - **[Lilu 1.7.2](https://github.com/acidanthera/Lilu/releases)**
-- **[LucyRTL8125Ethernet 1.2.3](https://github.com/Mieze/LucyRTL8125Ethernet/releases)**
 - **[NVMeFix 1.1.3](https://github.com/acidanthera/NVMeFix/releases)**
+- **[RealtekRTL8111 3.0.0](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)**
 - **[RestrictEvents 1.1.6](https://github.com/acidanthera/RestrictEvents/releases)**
 - **[SMCProcessor 1.3.8](https://github.com/acidanthera/virtualsmc/releases)**
 - **[SMCRadeonSensors 2.4.0](https://github.com/ChefKissInc/SMCRadeonSensors/releases)**
