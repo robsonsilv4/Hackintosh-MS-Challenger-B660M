@@ -53,7 +53,7 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 
 ## Notes
 
-- **Wi-Fi**: `itlwm` has no native menu — install the [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) app to connect to networks. No AirDrop/Continuity/Sidecar (Intel Wi-Fi limitation).
+- **Wi-Fi**: `itlwm` has no native menu. Install the [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) app to connect to networks. No AirDrop/Continuity/Sidecar (Intel Wi-Fi limitation).
 - **Bluetooth**: uses the [lshbluesky fork](https://github.com/lshbluesky/IntelBluetoothFirmware/releases) of `IntelBluetoothFirmware`/`IntelBTPatcher` (2.5.1) for macOS Tahoe support and the Bluetooth LE fix (26.5+). The official kexts instead need `-ibtcompatbeta`.
 - **WhateverGreen**: kept; Lilu 1.7.2 fixed the AMD panic on macOS 26. If the installer panics on AMD/WhateverGreen, disable `WhateverGreen.kext` and drop `agdpmod=pikera` (MacPro7,1 + RX 6600 does not need it).
 - **USB**: `USBMap.kext` carries both the legacy (`port`/`UsbConnector`) and the macOS Tahoe (`usb-port-number`/`usb-port-type`) keys, so it works on Sequoia and Tahoe. The Bluetooth port is `Internal (255)`.
@@ -67,7 +67,7 @@ Enter setup with `DEL`. Re-check these after any BIOS update, CMOS reset, "Load 
 Disable:
 - Secure Boot (under Security)
 - Fast Boot and CSM (under Startup)
-- CFG Lock (usually hidden on MAXSUN — verify with `ControlMsrE2.efi`; if locked, set `AppleXcpmCfgLock=true`)
+- CFG Lock (usually hidden on MAXSUN, verify with `ControlMsrE2.efi`; if locked, set `AppleXcpmCfgLock=true`)
 - Intel SGX, TPM/PTT, Serial/COM port
 - Intel VMD / RST (or set the SATA mode to AHCI)
 - Resizable BAR (or keep it and leave `ResizeAppleGpuBars=0`)
@@ -79,7 +79,7 @@ Enable:
 - OS Type: Windows 8.1/10 UEFI (or "Other OS")
 - SATA Mode: AHCI
 
-Leave VT-d enabled — `DisableIoMapper=true` already handles it in OpenCore.
+Leave VT-d enabled. `DisableIoMapper=true` already handles it in OpenCore.
 
 ## Install
 
@@ -99,7 +99,7 @@ Leave VT-d enabled — `DisableIoMapper=true` already handles it in OpenCore.
 - [ ] Verify the macOS Tahoe install
 - [ ] Run the OpenCore Legacy Patcher "Modern Audio" root patch after install (analog audio)
 
-## Tools (Optional)
+## Tools (optional)
 
 - **[MountEFI](https://github.com/corpnewt/MountEFI)**
 - **[ProperTree](https://github.com/corpnewt/ProperTree)**
@@ -110,7 +110,7 @@ Leave VT-d enabled — `DisableIoMapper=true` already handles it in OpenCore.
 
 ## Credits
 
-Thanks to all developers and contributors of OpenCore, OpenCore Legacy Patcher, drivers, kexts, and tools used in this project. Checkout the links above for more information.
+Thanks to all developers and contributors of OpenCore, OpenCore Legacy Patcher, drivers, kexts, and tools used in this project.
 
 ## License
 
