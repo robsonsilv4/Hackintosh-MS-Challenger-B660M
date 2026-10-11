@@ -58,16 +58,37 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 - **Bluetooth**: uses the [lshbluesky fork](https://github.com/lshbluesky/IntelBluetoothFirmware/releases) of `IntelBluetoothFirmware`/`IntelBTPatcher` (2.5.1) for macOS Tahoe support and the Bluetooth LE fix (26.5+). The official kexts instead need `-ibtcompatbeta`.
 - **WhateverGreen**: kept; Lilu 1.7.2 fixed the AMD panic on macOS 26. If the installer panics on AMD/WhateverGreen, disable `WhateverGreen.kext` and drop `agdpmod=pikera` (MacPro7,1 + RX 6600 does not need it).
 - **USB**: `USBMap.kext` carries both the legacy (`port`/`UsbConnector`) and the macOS Tahoe (`usb-port-number`/`usb-port-type`) keys, so it works on Sequoia and Tahoe. The Bluetooth port is `Internal (255)`.
-- **Analog audio**: `AppleHDA.kext` was removed in macOS 26, so `AppleALC` needs it reinjected. HDMI/DP audio works out of the box. To get analog (Realtek) audio, run [OCLP-CustoMac](https://github.com/kgp-macPro/OCLP-CustoMac) after install (Modern Audio root patch). The required config is already in place: `AMFIPass 1.4.1` + `-amfipassbeta`, `SecureBootModel=Disabled`, `csr-active-config=03080000`. Re-apply after every macOS update.
+- **Analog audio**: `AppleHDA.kext` was removed in macOS 26, so `AppleALC` needs it reinjected. HDMI/DP audio works out of the box. For analog (Realtek) audio, run a root patcher after install — [RP-CORE](https://github.com/luchina-gabriel/RP-CORE) (Modern Audio) or [OCLP-CustoMac](https://github.com/kgp-macPro/OCLP-CustoMac). The required config is already in place: `AMFIPass 1.4.1` + `-amfipassbeta`, `SecureBootModel=Disabled`, `csr-active-config=03080000`, `DisableIoMapper=true`. Re-apply after every macOS update.
 - **iServices**: the network interface used as en0 must be `built-in` (onboard Ethernet or the `itlwm` interface, which appears as Ethernet).
+
+## BIOS (MAXSUN MS-Challenger B660M)
+
+Enter setup with `DEL`. Re-check these after any BIOS update, CMOS reset, "Load Optimized Defaults", or OpenCore "Reset NVRAM".
+
+Disable:
+- Secure Boot (under Security)
+- Fast Boot and CSM (under Startup)
+- CFG Lock (usually hidden on MAXSUN — verify with `ControlMsrE2.efi`; if locked, set `AppleXcpmCfgLock=true`)
+- Intel SGX, TPM/PTT, Serial/COM port
+- Intel VMD / RST (or set the SATA mode to AHCI)
+- Resizable BAR (or keep it and leave `ResizeAppleGpuBars=0`)
+
+Enable:
+- Above 4G Decoding (under Advanced)
+- VT-x, Hyper-Threading, Execute Disable Bit
+- XHCI Hand-off
+- OS Type: Windows 8.1/10 UEFI (or "Other OS")
+- SATA Mode: AHCI
+
+Leave VT-d enabled — `DisableIoMapper=true` already handles it in OpenCore.
 
 ## Install
 
-1. BIOS: disable Fast Boot, Secure Boot, CSM and CFG Lock; enable Above 4G Decoding and XHCI Hand-off; disable Resizable BAR (or keep `ResizeAppleGpuBars=0`).
+1. Apply the [BIOS settings](#bios-maxsun-ms-challenger-b660m).
 2. Create a macOS Tahoe USB installer (`createinstallmedia`) and copy this `EFI/` folder to its EFI partition.
 3. Boot it, format the target volume as APFS and install. Do not sign into iCloud or enable FileVault during setup.
 4. Post-install: install the HeliPort app, confirm en0 is `built-in`, then sign into iCloud.
-5. Analog audio: run the Modern Audio root patch with [OCLP-CustoMac](https://github.com/kgp-macPro/OCLP-CustoMac).
+5. Analog audio: run the Modern Audio root patch ([RP-CORE](https://github.com/luchina-gabriel/RP-CORE) or [OCLP-CustoMac](https://github.com/kgp-macPro/OCLP-CustoMac)).
 
 ## Status
 
@@ -76,9 +97,8 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 
 ## TODO
 
-- [ ] Add BIOS settings
 - [ ] Verify the macOS Tahoe install
-- [ ] Run the OCLP-CustoMac Modern Audio root patch after install (analog audio)
+- [ ] Run the Modern Audio root patch after install (analog audio)
 
 ## Tools (Optional)
 
