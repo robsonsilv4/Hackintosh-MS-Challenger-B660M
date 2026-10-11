@@ -1,6 +1,6 @@
-# Hackintosh MS-Challenger B660M (macOS Sequoia)
+# Hackintosh MS-Challenger B660M (macOS Tahoe)
 
-Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on MAXSUN MS-Challenger B660M with Intel Core i5-12400F and 51RISC (MSI MECH 2X) AMD Radeon RX 6600.
+OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M with Intel Core i5-12400F and 51RISC (MSI MECH 2X) AMD Radeon RX 6600. Also boots macOS Sequoia 15.x.
 
 ## Screenshots
 
@@ -37,8 +37,8 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 - **[AppleALC 1.9.8](https://github.com/acidanthera/applealc/releases)**
 - **[BlueToolFixup 2.7.2](https://github.com/acidanthera/BrcmPatchRAM/releases)**
 - **[CpuTscSync 1.1.2](https://github.com/acidanthera/CpuTscSync/releases)**
-- **[IntelBluetoothFirmware 2.4.0](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)**
-- **[IntelBTPatcher 2.4.0](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)**
+- **[IntelBluetoothFirmware 2.5.1](https://github.com/lshbluesky/IntelBluetoothFirmware/releases)**
+- **[IntelBTPatcher 2.5.1](https://github.com/lshbluesky/IntelBluetoothFirmware/releases)**
 - **[itlwm 2.3.0](https://github.com/OpenIntelWireless/itlwm/releases)**
 - **[Lilu 1.7.2](https://github.com/acidanthera/Lilu/releases)**
 - **[LucyRTL8125Ethernet 1.2.3](https://github.com/Mieze/LucyRTL8125Ethernet/releases)**
@@ -52,16 +52,33 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 - **[VirtualSMC 1.3.8](https://github.com/acidanthera/virtualsmc/releases)**
 - **[WhateverGreen 1.7.1](https://github.com/acidanthera/whatevergreen/releases)**
 
-> **Wi-Fi note**: `itlwm` has no native menu — install the [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) app to connect to networks.
+## Notes
+
+- **Wi-Fi**: `itlwm` has no native menu — install the [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) app to connect to networks. No AirDrop/Continuity/Sidecar (Intel Wi-Fi limitation).
+- **Bluetooth**: uses the [lshbluesky fork](https://github.com/lshbluesky/IntelBluetoothFirmware/releases) of `IntelBluetoothFirmware`/`IntelBTPatcher` (2.5.1) for macOS Tahoe support and the Bluetooth LE fix (26.5+). The official kexts instead need `-ibtcompatbeta`.
+- **WhateverGreen**: kept; Lilu 1.7.2 fixed the AMD panic on macOS 26. If the installer panics on AMD/WhateverGreen, disable `WhateverGreen.kext` and drop `agdpmod=pikera` (MacPro7,1 + RX 6600 does not need it).
+- **USB**: `USBMap.kext` carries both the legacy (`port`/`UsbConnector`) and the macOS Tahoe (`usb-port-number`/`usb-port-type`) keys, so it works on Sequoia and Tahoe. The Bluetooth port is `Internal (255)`.
+- **Analog audio**: `AppleHDA.kext` was removed in macOS 26, so `AppleALC` needs it reinjected. HDMI/DP audio works out of the box. To get analog (Realtek) audio, run [OCLP-CustoMac](https://github.com/kgp-macPro/OCLP-CustoMac) after install (Modern Audio root patch). The required config is already in place: `AMFIPass 1.4.1` + `-amfipassbeta`, `SecureBootModel=Disabled`, `csr-active-config=03080000`. Re-apply after every macOS update.
+- **iServices**: the network interface used as en0 must be `built-in` (onboard Ethernet or the `itlwm` interface, which appears as Ethernet).
+
+## Install
+
+1. BIOS: disable Fast Boot, Secure Boot, CSM and CFG Lock; enable Above 4G Decoding and XHCI Hand-off; disable Resizable BAR (or keep `ResizeAppleGpuBars=0`).
+2. Create a macOS Tahoe USB installer (`createinstallmedia`) and copy this `EFI/` folder to its EFI partition.
+3. Boot it, format the target volume as APFS and install. Do not sign into iCloud or enable FileVault during setup.
+4. Post-install: install the HeliPort app, confirm en0 is `built-in`, then sign into iCloud.
+5. Analog audio: run the Modern Audio root patch with [OCLP-CustoMac](https://github.com/kgp-macPro/OCLP-CustoMac).
 
 ## Status
 
-- **Working**: Everything
-- **Not Working**: Nothing
+- **Verified**: everything on macOS Sequoia 15.6
+- **Pending**: not yet booted on macOS Tahoe
 
 ## TODO
 
 - [ ] Add BIOS settings
+- [ ] Verify the macOS Tahoe install
+- [ ] Run the OCLP-CustoMac Modern Audio root patch after install (analog audio)
 
 ## Tools (Optional)
 
