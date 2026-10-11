@@ -20,35 +20,35 @@ Fully working OpenCore configuration for macOS Sequoia (macOS 15.6 (24G84)) on M
 
 ## Bootloader
 
-- **OpenCore**: [1.0.5 (Release)](https://github.com/acidanthera/OpenCorePkg/releases)
-- **OpenCore Legacy Patcher**: [2.4.0](https://github.com/dortania/OpenCore-Legacy-Patcher)
+- **OpenCore**: [1.0.8 (Release)](https://github.com/acidanthera/OpenCorePkg/releases)
+- **OpenCore Legacy Patcher**: [2.5.1](https://github.com/dortania/OpenCore-Legacy-Patcher)
 
 ## Drivers
 
-- **AudioDxe**: [OpenCore 1.0.5](https://github.com/acidanthera/OpenCorePkg/releases)
+- **AudioDxe**: [OpenCore 1.0.8](https://github.com/acidanthera/OpenCorePkg/releases)
 - **HfsPlus**: [OcBinaryData (Jan 4, 2023)](https://github.com/acidanthera/OcBinaryData)
-- **OpenCanopy**: [OpenCore 1.0.5](https://github.com/acidanthera/OpenCorePkg/releases)
-- **OpenRuntime**: [OpenCore 1.0.5](https://github.com/acidanthera/OpenCorePkg/releases)
-- **ResetNvramEntry**: [OpenCore 1.0.5](https://github.com/acidanthera/OpenCorePkg/releases)
+- **OpenCanopy**: [OpenCore 1.0.8](https://github.com/acidanthera/OpenCorePkg/releases)
+- **OpenRuntime**: [OpenCore 1.0.8](https://github.com/acidanthera/OpenCorePkg/releases)
+- **ResetNvramEntry**: [OpenCore 1.0.8](https://github.com/acidanthera/OpenCorePkg/releases)
 
 ## Kexts
 
 - **[AMFIPass 1.4.1](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera)**
-- **[AppleALC 1.9.5](https://github.com/acidanthera/applealc/releases)**
+- **[AppleALC 1.9.8](https://github.com/acidanthera/applealc/releases)**
 - **[CpuTscSync 1.1.2](https://github.com/acidanthera/CpuTscSync/releases)**
 - **[IO80211FamilyLegacy 1.0.0](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)**
 - **[IOSkywalkFamily 1.2.0](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)**
-- **[Lilu 1.7.1](https://github.com/acidanthera/Lilu/releases)**
-- **[LucyRTL8125Ethernet 1.2.2](https://github.com/Mieze/LucyRTL8125Ethernet/releases)**
+- **[Lilu 1.7.2](https://github.com/acidanthera/Lilu/releases)**
+- **[LucyRTL8125Ethernet 1.2.3](https://github.com/Mieze/LucyRTL8125Ethernet/releases)**
 - **[NVMeFix 1.1.3](https://github.com/acidanthera/NVMeFix/releases)**
 - **[RestrictEvents 1.1.6](https://github.com/acidanthera/RestrictEvents/releases)**
-- **[SMCProcessor 1.3.7](https://github.com/acidanthera/virtualsmc/releases)**
-- **[SMCRadeonSensors 2.3.1](https://github.com/ChefKissInc/SMCRadeonSensors/releases)**
-- **[SMCSuperIO 1.3.7](https://github.com/acidanthera/virtualsmc/releases)**
+- **[SMCProcessor 1.3.8](https://github.com/acidanthera/virtualsmc/releases)**
+- **[SMCRadeonSensors 2.4.0](https://github.com/ChefKissInc/SMCRadeonSensors/releases)**
+- **[SMCSuperIO 1.3.8](https://github.com/acidanthera/virtualsmc/releases)**
 - **[USBMap Dec 23, 2022](https://github.com/corpnewt/USBMap)**
 - **[USBWakeFixup 1.0](https://github.com/osy/USBWakeFixup/releases)**
-- **[VirtualSMC 1.3.7](https://github.com/acidanthera/virtualsmc/releases)**
-- **[WhateverGreen 1.7.0](https://github.com/acidanthera/whatevergreen/releases)**
+- **[VirtualSMC 1.3.8](https://github.com/acidanthera/virtualsmc/releases)**
+- **[WhateverGreen 1.7.1](https://github.com/acidanthera/whatevergreen/releases)**
 
 ## Status
 
