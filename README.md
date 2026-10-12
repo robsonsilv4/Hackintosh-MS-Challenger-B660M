@@ -100,13 +100,13 @@ Leave VT-d enabled. `DisableIoMapper=true` already handles it in OpenCore.
 
 ## After the first boot
 
-Follow-ups that need the live machine. None of them are blocking the install.
+These checks need the live machine and are not blocking the install.
 
-- [ ] CFG Lock: check it is unlocked with `ControlMsrE2.efi`; if locked, set `Kernel > Quirks > AppleXcpmCfgLock=true`.
-- [ ] en0: confirm the wired NIC is `en0` and `built-in` (Hackintool), and that `PlatformInfo > Generic > ROM` matches its MAC.
-- [ ] USB/Bluetooth: only if they misbehave, regenerate `USBMap.kext` for this machine.
-- [ ] Analog audio: if MyKextInstaller cannot write `AppleHDA.kext`, boot Recovery and run `csrutil authenticated-root disable` first.
-- [ ] Once the system works, drop the debug flags: remove `debug=0x100`, `keepsyms=1`, `-lilubetaall`, and `agdpmod=pikera`.
+- [ ] Check CFG Lock with `ControlMsrE2.efi`; if it is locked, set `Kernel > Quirks > AppleXcpmCfgLock=true`.
+- [ ] Confirm the wired NIC is `en0` and `built-in` (Hackintool), and that `PlatformInfo > Generic > ROM` matches its MAC.
+- [ ] Regenerate `USBMap.kext` for this machine only if USB or Bluetooth misbehaves.
+- [ ] If MyKextInstaller cannot write `AppleHDA.kext`, boot Recovery and run `csrutil authenticated-root disable` first.
+- [ ] Once the system works, remove the debug flags: `debug=0x100`, `keepsyms=1`, `-lilubetaall`, and `agdpmod=pikera`.
 - [ ] If you skip analog audio, tighten security: set `SecureBootModel=Default` and `csr-active-config=00000000`, and drop `AMFIPass.kext` plus `-amfipassbeta`.
 - [ ] Keep a copy of the working `EFI/` on a USB stick before the next macOS update.
 
