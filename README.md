@@ -1,22 +1,49 @@
-# Hackintosh MS-Challenger B660M (macOS Tahoe)
+# Hackintosh MS-Challenger B660M (OpenCore EFI, Sequoia 15 / Tahoe 26)
 
-OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M with Intel Core i5-12400F and 51RISC (MSI MECH 2X) AMD Radeon RX 6600. Also boots macOS Sequoia 15.x.
+![OpenCore](https://img.shields.io/badge/OpenCore-1.0.8-blue)
+![macOS](https://img.shields.io/badge/macOS-Sequoia%2015%20%7C%20Tahoe%2026-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## Screenshots
+OpenCore EFI for the MAXSUN MS-Challenger B660M with an Intel Core i5-12400F and an AMD Radeon RX 6600. Verified on macOS Sequoia 15.6. The macOS Tahoe 26 target is prepared but not yet booted.
 
-![About This Mac](./screenshots/about-this-mac.png)
+## Status
 
-![Neofetch](./screenshots/neofetch.png)
+| macOS | State |
+| --- | --- |
+| Sequoia 15.6 | Verified |
+| Tahoe 26.x | Prepared, not booted |
+
+## Contents
+
+- [Specifications](#specifications)
+- [Screenshots](#screenshots)
+- [Bootloader](#bootloader)
+- [Drivers](#drivers)
+- [Kexts](#kexts)
+- [Notes](#notes)
+- [BIOS](#bios-maxsun-ms-challenger-b660m)
+- [Install](#install)
+- [After the first boot](#after-the-first-boot)
+- [Tools](#tools-optional)
+- [References](#references)
 
 ## Specifications
 
 - **Motherboard**: MAXSUN MS-Challenger B660M
-- **CPU**: Intel Core i5-12400F (Alder Lake)
+- **CPU**: Intel Core i5-12400F (Alder Lake, no iGPU)
 - **GPU**: 51RISC (MSI MECH 2X) AMD Radeon RX 6600 (Navi 23)
 - **RAM**: MAXSUN MS-Avenger 32GB DDR4 3200MHz (2x16GB)
 - **SSD**: Netac NV7000 1TB NVMe (PCIe 4.0 x4)
+- **Ethernet**: Realtek RTL8111/8168 (Gigabit)
 - **Wi-Fi/Bluetooth**: Fenvi AX210 (Intel Wi-Fi 6E AX210)
+- **Audio**: Realtek ALC897 (`layout-id 11`)
 - **SMBIOS**: MacPro7,1 (Mac Pro (2019))
+
+## Screenshots
+
+![About This Mac (Sequoia 15.6)](./screenshots/about-this-mac.png)
+
+![Neofetch](./screenshots/neofetch.png)
 
 ## Bootloader
 
@@ -24,7 +51,6 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 
 ## Drivers
 
-- **AudioDxe**: [OpenCore 1.0.8](https://github.com/acidanthera/OpenCorePkg/releases)
 - **HfsPlus**: [OcBinaryData (Jan 4, 2023)](https://github.com/acidanthera/OcBinaryData)
 - **OpenCanopy**: [OpenCore 1.0.8](https://github.com/acidanthera/OpenCorePkg/releases)
 - **OpenRuntime**: [OpenCore 1.0.8](https://github.com/acidanthera/OpenCorePkg/releases)
@@ -88,16 +114,6 @@ Leave VT-d enabled. `DisableIoMapper=true` already handles it in OpenCore.
 4. Post-install: install the HeliPort app, confirm en0 is `built-in`, then sign into iCloud.
 5. Analog audio: install a matching KDK, then use MyKextInstaller to install `AppleHDA.kext`.
 
-## Status
-
-- **Verified**: everything on macOS Sequoia 15.6
-- **Pending**: not yet booted on macOS Tahoe
-
-## TODO
-
-- [ ] Verify the macOS Tahoe install
-- [ ] Install `AppleHDA.kext` with MyKextInstaller after install (analog audio)
-
 ## After the first boot
 
 These checks need the live machine and are not blocking the install.
@@ -120,10 +136,19 @@ These checks need the live machine and are not blocking the install.
 - **[Suspicious Package](https://mothersruin.com/software/SuspiciousPackage/)**
 - **[OnyX](https://www.titanium-software.fr/en/onyx.html)**
 
-## Credits
+## References
 
-Thanks to all developers and contributors of OpenCore, drivers, kexts, and tools used in this project.
+Thanks to the developers and contributors of OpenCore, the drivers, kexts, and tools used here.
+
+- [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+- [Dortania: macOS 26 (Tahoe) notes](https://dortania.github.io/OpenCore-Install-Guide/extras/tahoe.html)
+- [Acidanthera OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)
+- [luchina-gabriel BASE-EFI (Alder Lake)](https://github.com/luchina-gabriel/BASE-EFI-INTEL-DESKTOP-12THGEN-ALDER-LAKE-PUBLIC)
+
+## Disclaimer
+
+A Hackintosh is not supported by Apple. Use this at your own risk, and keep a backup of a known-good `EFI/` before any change. This repository is shared for personal and educational use.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
