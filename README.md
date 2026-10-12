@@ -21,7 +21,6 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 ## Bootloader
 
 - **OpenCore**: [1.0.8 (Release)](https://github.com/acidanthera/OpenCorePkg/releases)
-- **OpenCore Legacy Patcher**: [3.0.0-rc.3](https://github.com/dortania/OpenCore-Legacy-Patcher/releases) (post-install root patches; required for analog audio on Tahoe)
 
 ## Drivers
 
@@ -57,7 +56,7 @@ OpenCore configuration for macOS Tahoe (macOS 26) on MAXSUN MS-Challenger B660M 
 - **Bluetooth**: uses the [lshbluesky fork](https://github.com/lshbluesky/IntelBluetoothFirmware/releases) of `IntelBluetoothFirmware`/`IntelBTPatcher` (2.5.1) for macOS Tahoe support and the Bluetooth LE fix (26.5+). The official kexts instead need `-ibtcompatbeta`.
 - **WhateverGreen**: kept; Lilu 1.7.2 fixed the AMD panic on macOS 26. If the installer panics on AMD/WhateverGreen, disable `WhateverGreen.kext` and drop `agdpmod=pikera` (MacPro7,1 + RX 6600 does not need it).
 - **USB**: `USBMap.kext` carries both the legacy (`port`/`UsbConnector`) and the macOS Tahoe (`usb-port-number`/`usb-port-type`) keys, so it works on Sequoia and Tahoe. The Bluetooth port is `Internal (255)`.
-- **Analog audio**: `AppleHDA.kext` was removed in macOS 26, so `AppleALC` needs it reinjected. HDMI/DP audio works out of the box. For analog (Realtek) audio, run the [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases) "Modern Audio" root patch after install (built into OCLP 3.0.0-rc.2+). The required config is already in place: `AMFIPass 1.4.1` + `-amfipassbeta`, `SecureBootModel=Disabled`, `csr-active-config=03080000`, `DisableIoMapper=true`. It requires a matching Kernel Debug Kit (KDK): revert the patch before every macOS update and re-apply it after, and do not apply it on a build with no compatible KDK (unbootable system).
+- **Analog audio**: `AppleHDA.kext` was removed in macOS 26, so `AppleALC` needs it reinjected. HDMI/DP audio works out of the box. For analog (Realtek) audio, install `AppleHDA.kext` after install with [MyKextInstaller](https://github.com/Mirone/MyKextInstaller/releases). The official OpenCore Legacy Patcher "Modern Audio" patch is not offered on MacPro7,1 (OCLP only patches the models it treats as unsupported, and MacPro7,1 is native to Tahoe); an OCLP-based fork (OCLP-CustoMac, OCLP-Plus) is the alternative. The required config is already in place: `AMFIPass 1.4.1` + `-amfipassbeta`, `SecureBootModel=Disabled`, `csr-active-config=03080000`, `DisableIoMapper=true`. It requires a matching Kernel Debug Kit (KDK): revert the patch before every macOS update and re-apply it after, and do not apply it on a build with no compatible KDK (unbootable system).
 - **iServices**: the network interface used as en0 must be `built-in` (onboard Ethernet or the `itlwm` interface, which appears as Ethernet).
 
 ## BIOS (MAXSUN MS-Challenger B660M)
@@ -87,7 +86,7 @@ Leave VT-d enabled. `DisableIoMapper=true` already handles it in OpenCore.
 2. Create a macOS Tahoe USB installer (`createinstallmedia`) and copy this `EFI/` folder to its EFI partition.
 3. Boot it, format the target volume as APFS and install. Do not sign into iCloud or enable FileVault during setup.
 4. Post-install: install the HeliPort app, confirm en0 is `built-in`, then sign into iCloud.
-5. Analog audio: install a matching KDK, then run the OpenCore Legacy Patcher "Modern Audio" root patch.
+5. Analog audio: install a matching KDK, then use MyKextInstaller to install `AppleHDA.kext`.
 
 ## Status
 
@@ -97,20 +96,21 @@ Leave VT-d enabled. `DisableIoMapper=true` already handles it in OpenCore.
 ## TODO
 
 - [ ] Verify the macOS Tahoe install
-- [ ] Run the OpenCore Legacy Patcher "Modern Audio" root patch after install (analog audio)
+- [ ] Install `AppleHDA.kext` with MyKextInstaller after install (analog audio)
 
 ## Tools (optional)
 
 - **[MountEFI](https://github.com/corpnewt/MountEFI)**
 - **[ProperTree](https://github.com/corpnewt/ProperTree)**
 - **[Hackintool](https://github.com/benbaker76/Hackintool/releases)**
+- **[MyKextInstaller](https://github.com/Mirone/MyKextInstaller/releases)**
 - **[Stats](https://github.com/exelban/stats/releases)**
 - **[Suspicious Package](https://mothersruin.com/software/SuspiciousPackage/)**
 - **[OnyX](https://www.titanium-software.fr/en/onyx.html)**
 
 ## Credits
 
-Thanks to all developers and contributors of OpenCore, OpenCore Legacy Patcher, drivers, kexts, and tools used in this project.
+Thanks to all developers and contributors of OpenCore, drivers, kexts, and tools used in this project.
 
 ## License
 
